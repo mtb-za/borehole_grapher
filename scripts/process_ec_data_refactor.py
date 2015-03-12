@@ -3,32 +3,8 @@ import numpy as npy
 import matplotlib as mpl
 from decimal import *
 from matplotlib import pyplot
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
 import os
 
-class Input(QWidget):
-    def __init__(self, parent=None):
-        super(Form, self).__init__(parent)
-        
-        nameLabel = QLabel("Name")
-        self.nameLine = QLineEdit()
-        self.submitButton = QPushButton("Submit")
-        
-        buttonLayout1 = QVBoxLayout()
-        buttonLayout1.addWidget(nameLabel)
-        buttonLayout1.addWidget(self.nameLine)
-        buttonLayout1.addWidget(self.submitButton)
-        
-        self.submitButton.clicked.connect(self.submitContact)
-        
-        mainLayout = QGridLayout()
-        mainLayout.addLayout(buttonLayout1, 0, 1)
-        
-        self.setLayout(mainLayout)
-        self.setWindowTitle("Hello Qt")
-        
-        
 def ImportCSV(*args, **kwargs):
 	'''Import a CSV file for further analysis.'''
 	try:
@@ -267,7 +243,7 @@ def CreateMarkers(data, overwrite = False, suffix='', *args, **kwargs):
 
 def CreateGraphs(data, XName, YName, All = 0, suffix = '', *args, **kwargs):
 	'''In order to plot the graphs, we take the whole dataset, along with what we want to have on the X and Y axis.
- 
+
      If there is a test-type given, it will be used as a suffix on the file name, as well as '''
 	#unpack data list.
 	X, Y, BHList, FarmList, OwnerList, East, South, BHElev, BHWaterLev, TestDate, Set, Type, Graphs = data[:]
