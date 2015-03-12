@@ -71,3 +71,9 @@ These are the main files to make things work. Includes the script, a `index.html
 An .html file is created for each borehole, as detailed above. Each borehole will have one of these files which will open in a new tab when selected.
 * `graphs`
 A .png file is created for each test detected.
+
+##  License
+
+This code is licensed under a CC-BY license.
+
+The existing test data is synthetic, based on an area where similar work is being undertaken.
