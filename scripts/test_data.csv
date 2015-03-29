@@ -1,4 +1,5 @@
-Borehole Number,Farm,Owner,Longitude,Latitude,Elevation,Water Level,Date,Depth,Reading,Type
+BoreholeID,Farm,Owner,Longitude,Latitude,Elevation,Water Level,Date,Depth,Reading,Type
+BH003,Vlakte,Jim,24.38097,33.10909,452,31.3,2015-03-12,32,4206,EC
 BH018,Wittewater,John,24.68097,33.00909,452,31.3,2014-11-16,32,4206,EC
 BH018,Wittewater,John,24.68097,33.00909,452,31.3,2014-11-16,33,4214,EC
 BH018,Wittewater,John,24.68097,33.00909,452,31.3,2014-11-16,34,4348,EC
