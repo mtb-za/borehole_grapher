@@ -121,17 +121,18 @@ def make_empty_dict (headers):
         empty_record [i] = ''
     return empty_record
 
-def split_sublists (records, important, headers):
+def split_sublists (records, important_cols, headers):
     '''Takes a list of dicts and splits them according to changes in key value.
 
     For example, if passing a borehole ID as `item`, when the borehole ID
     changes, then a new list is created.
 
     Returns a list of lists of dicts. This could be better.'''
-    item = important[0]
+    item = important_cols[0]
     print "Splitting according to", item
 
     records.append(make_empty_dict(headers))
+    #This is only required in order to add the last list of records.
 
     all_records = []
     new_record = []
@@ -141,14 +142,21 @@ def split_sublists (records, important, headers):
         #for item in important:
         if previous_row[item] == row[item]:
             new_record.append( row )
-            print row[item]
+            #print row[item]
         else:
-            all_records.append (new_record)
             print "Appending", len(new_record), "records to all_records"
+            print len( new_record ), len( important_cols )
+            if len( new_record ) > 1 and len( important_cols ) > 1:
+                print "Recursing"
+                tmp_list = split_sublists( new_record, important_cols[1:], headers)
+                for list_item in tmp_list:
+                    all_records.append ( list_item )
+            else:
+                all_records.append (new_record)
             #print new_record
             new_record = []
             new_record.append(row)
-            print "=========================New Row========================="
+            print "=========================New Test========================="
         previous_row = row
     return all_records
 
@@ -168,13 +176,11 @@ if __name__ == "__main__":
     print "========="
 
     for i in range (len (new_lists)):
-        print len(new_lists[i])
-    print len (new_lists)
-    print type (new_lists), type(new_lists[0]), type (new_lists[0][0])
-    print "========="
+        print new_lists[i][0]["BoreholeID"], len(new_lists[i])
+    print "Total tests:", len (new_lists)
 
-    new_lists1 = split_sublists (new_lists[1], important_cols, header)
-    for i in range (len (new_lists1)):
-        print len(new_lists1[i])
-    print len (new_lists1)
-    print type (new_lists1), type(new_lists1[0]), type (new_lists1[0][0])
+    '''print new_lists[0]
+    print "=========================New Test========================="
+    print new_lists[11]
+    print "=========================New Test========================="
+    print new_lists[2]'''
