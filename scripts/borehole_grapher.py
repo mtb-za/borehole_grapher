@@ -8,7 +8,10 @@ import csv
 
 #These all work with importing and slicing the CSV file(s) we want to import.
 def import_csv(filename, verbose=False):
-    '''Import a CSV file for further analysis.'''
+    '''Import a CSV file for further analysis.
+    * returns: `records`: a list of dicts, with the header of each column
+    being the key.
+    '''
     if verbose:
         print ('Importing from' , filename)
     records = []
@@ -19,7 +22,10 @@ def import_csv(filename, verbose=False):
     return records
 
 def csv_header(records):
-    '''This function will take in a generator and return the first item.'''
+    '''
+    This function will take in a generator and return the first item.
+    Utility here is that it will create a list of the headers of the csv file.
+    '''
     tmp = zip(*records)
     header = []
     for i in range ( len (tmp)):
@@ -33,7 +39,7 @@ def split_records(records, headers, verbose=False):
     Each set of keys will create a list in a 2D matrix.
 
     In other words, this will create a 2D matrix based on the headers that you
-    have created/generated.
+    have passed/generated. These should be linked to the csv file parsed.
     '''
     split_data, column = [],0
 
@@ -95,12 +101,27 @@ def split_sublists (records, important_cols, headers, verbose=False):
         previous_row = row
     return all_records
 
-def print_record_summary (records):
+def print_record_summary (records, column):
+    '''
+    Utility function to print out something about the tests read in.
+    Will give the number of readings for each `column` and the total number of
+    tests detected.
+    '''
     for i in range (len (records)):
-        print records[i][0]["BoreholeID"], len(records[i])
+        print records[i][0][column], len(records[i])
     print "Total tests:", len (records)
 
+#The following functions do most of the work for presentation.
+#This includes things like generating graphs and making marker points.
 def getXY_values ( record, xy, verbose=False, make_Y_negative = True):
+    '''
+    Extracts and returns the values for X and Y for a given test.
+    This works on a list of dicts, and should be given for each test.
+
+    Intended to be used for graphing these values.
+
+    *returns: `(X,Y)`: tuple of lists with the X and Y values for each test.
+    '''
     X, Y = [], []
     XName, YName = '',''
     for index in range (len (record)):
@@ -117,22 +138,36 @@ def getXY_values ( record, xy, verbose=False, make_Y_negative = True):
         print "Y:", Y
     return (X, Y)
 
-def make_title (record, title_scheme, title_columns, join=' ', verbose=False):
+def make_text (record, text_scheme, text_columns, join=' ', verbose=False):
+    '''
+    Utility function which replaces numbers in a list with values from a given
+    record.
+    For example, if passed the following tuple:
+    title_pattern = ( [0, 'test in', 2, '\n', 4, ' (', 6, ')'],
+            ["Type", "BoreholeID", "Farm", "Owner"] )
+    each will then be combined to use the Type, BoreholeID, Farm and Owner
+    of each record, filling those values in, in order within the
+    overall pattern.
+
+    * returns: `title`: a list of strings with the substituted values.
+    '''
+
+
     col = 0
-    title = title_scheme[:] #This took way too long to work out....
-    for index in range(len(title_scheme)-1):
+    text = text_scheme[:] #This took way too long to work out....
+    for index in range(len(text_scheme)-1):
         if verbose:
-            print "Length of title_scheme:", len(title_scheme), \
-              "| Index for title:", index, "| title_scheme[index]:",\
-              title_scheme[index], "|", title_columns[col], "|\ntitle_scheme",\
-              title_scheme, "| record[title_columns[col]]",\
-              record[title_columns[col]]
-        if type( title_scheme[index] ) == type(0):
-            title[index] = record[title_columns[col]]
+            print "Length of text_scheme:", len(text_scheme), \
+              "| Index for text:", index, "| text_scheme[index]:",\
+              text_scheme[index], "|", text_columns[col], "|\ntext_scheme",\
+              text_scheme, "| record[text_columns[col]]",\
+              record[text_columns[col]]
+        if type( text_scheme[index] ) == type(0):
+            text[index] = str(record[text_columns[col]])
             col += 1
     if verbose:
-        print "Scheme:",title_scheme, "| Title", title
-    return join.join(title)
+        print "Scheme:",text_scheme, "| text", text
+    return text
 
 def graph_records (records, xy, title_scheme, graph_file, XLabel, YLabel, \
   make_Y_negative = True, verbose=False):
@@ -154,8 +189,8 @@ def graph_records (records, xy, title_scheme, graph_file, XLabel, YLabel, \
         #We need to get a list of the X and Y values. getXY_values() does this.
         new_xy = getXY_values (records[record], xy)
 
-        #We can repurpose make_title() to define our filename for each graph.
-        graph_filename = make_title (records[record][0], graph_file[0],\
+        #We can repurpose make_text() to define our filename for each graph.
+        graph_filename = make_text (records[record][0], graph_file[0],\
           graph_file[1], '')
 
         #New we will set the axis labels. We search a dict to correlate a
@@ -166,9 +201,9 @@ def graph_records (records, xy, title_scheme, graph_file, XLabel, YLabel, \
                     XName = XLabel[index]
         YName = YLabel["Depth"]
 
-        #We call make_title() to get the title for each graph.
+        #We call make_text() to get the title for each graph.
         for index in range( len(records[record])):
-            graph_title = make_title (records[record][index], title_scheme[0],\
+            graph_title = make_text (records[record][index], title_scheme[0],\
               title_scheme[1])
             if verbose:
                 print graph_title
@@ -182,10 +217,41 @@ def graph_records (records, xy, title_scheme, graph_file, XLabel, YLabel, \
         mpl.pyplot.savefig(graph_filename, dpi=200)
         #mpl.pyplot.show()
 
-'''def plot_markers (records):
-    for index in range( len( records )):
-        record_set = set(records[index])
-        print record_set'''
+def plot_markers (records, marker_text, popup_text, verbose=False):
+    '''
+    Generates a locations.js file, which records the locations of each record.
+    These comprise a popup marker, with selected information on it.
+
+    There is a known bug in that it will add multiple markers if there are
+    multiple tests.
+    '''
+    for record in range( len(records)):
+        text = ' '.join(make_text (records[record][0], marker_text[0],\
+          marker_text[1]))
+        if verbose:
+            print text
+        location = str(round(float(records[record][0]["Latitude"]),5)),\
+          ",", str(round(float(records[record][0]["Longitude"]),5))
+        location = ''.join(location)
+        print location
+        popup_template = make_text (records[record][0], popup_text[0], popup_text[2] )
+        for index in range ( len( popup_template)):
+            if popup_template[index] == 'user_text':
+                popup_template[index] = text
+        popup_template = ''.join(popup_template)
+
+        marker_template = make_text (records[record][0], popup_text[1], popup_text[2])
+        for index in range ( len( marker_template)):
+            if marker_template[index] == 'user_text':
+                marker_template[index] = location
+        marker_template = ''.join(marker_template)
+
+        with open("locations.js", "at") as out_file:
+            out_file.write( popup_template )
+            out_file.write( marker_template )
+        '''PopupTemplate = "var " + BHList[i] + " = L.popup({maxWidth:600, maxHeight:600}).setContent('" + text + "')\n\n"
+		MarkerTemplate = "L.marker([" + location + "],{riseOnHover: true,title:'" + BHList[i] + \
+		"', opacity:0.5})\n\t.addTo(map)\n\t.bindPopup(" + BHList[i] + ")\n\n"'''
 
 if __name__ == "__main__":
     records = import_csv( sys.argv[1] )
@@ -196,12 +262,52 @@ if __name__ == "__main__":
     new_lists = split_sublists (records, important_cols, header)
 
     #print_record_summary(new_lists)
-    xy = ("Reading", 'Depth')
+    xy = ("Reading", 'Depth') #Choose the columns to use as X and Y.
+    #This is the pattern that make_text() will use to generate the title for
+    #each graph.
     title_pattern = ( [0, 'test in', 2, '\n', 4, ' (', 6, ')'],
         ["Type", "BoreholeID", "Farm", "Owner"] )
-    graph_file = ( ['../graphs/', 1 , "_", 3, "_", 5, ".png"],
-        ["BoreholeID", "Type", "Date"] )
+    #These are possible labels. As you have more test types, the values of the
+    #X-axis will be different. The Y-axis is anticipated to be depth,
+    #regardless of what is tested.
     YLabel = {"Depth": "Depth below surface (m)"}
     XLabel = {"G-G": "N", "EC": "Siemens per Second"}
+    #Pattern for filename for each graph.
+    graph_file = ( ['../graphs/', 1 , "_", 3, "_", 5, ".png"],
+    ["BoreholeID", "Type", "Date"] )
     graph_records (new_lists, xy, title_pattern, graph_file, XLabel, YLabel)
-    #plot_markers (new_lists)
+
+    #Pattern which will be used for creating popup markers.
+    popup_pattern = (
+    [ "var ", 1,
+    " = L.popup({maxWidth:600, maxHeight:600}).setContent('",
+    "user_text",
+    "')\n\n"
+    ],
+    ["MarkerTemplate = L.marker(['",
+    "user_text", "'],{riseOnHover: true,title:'", 0,
+    "', opacity:0.5})\n\t.addTo(map)\n\t.bindPopup(", 1, ")\n\n"
+    ],
+    ["BoreholeID",
+    "BoreholeID"
+    ]
+    )
+
+    #Pattern to be used for the text on a popup marker.
+    marker_text_pattern = (
+    ["Borehole:", 0,
+    "</br>Farm:", 1,
+    "</br>Owner:", 2,
+    "</br>Elevation:", 3,
+    "</br>Date visited:", 4,
+    ""],
+    [
+    "BoreholeID",
+    "Farm",
+    "Owner",
+    "Elevation",
+    "Date"
+    ]
+    )
+
+    plot_markers (new_lists, marker_text_pattern, popup_pattern)
