@@ -126,13 +126,13 @@ def getXY_values ( record, xy, verbose=False, make_Y_negative = True):
     XName, YName = '',''
     for index in range (len (record)):
         if verbose:
-            print record[index][xy[0]]
-        X.append ( record[index][xy[0]] )
+            print type (record[index][xy[0]]), record[index][xy[0]]
+            print type (float (record[index][xy[0]]) ), float(record[index][xy[0]])
+        X.append ( float(record[index][xy[0]]) )
         if make_Y_negative:
-            print record[index]["BoreholeID"], record[index][xy[1]]
-            Y.append ( 0 - float(record[index][xy[1]]) )
+            Y.append ( float(record[index][xy[1]]) * -1 )
         else:
-            Y.append ( record[index][xy[1]] )
+            Y.append ( float(record[index][xy[1]]) )
     if verbose:
         print "X:", X
         print "Y:", Y
@@ -187,11 +187,11 @@ def graph_records (records, xy, title_scheme, graph_file, XLabel, YLabel, \
             print record
 
         #We need to get a list of the X and Y values. getXY_values() does this.
-        new_xy = getXY_values (records[record], xy)
+        new_xy = getXY_values (records[record], xy, verbose)
 
         #We can repurpose make_text() to define our filename for each graph.
-        graph_filename = make_text (records[record][0], graph_file[0],\
-          graph_file[1], '')
+        graph_filename = ''.join(make_text (records[record][0], graph_file[0],\
+          graph_file[1], verbose))
 
         #New we will set the axis labels. We search a dict to correlate a
         #Type of test to the unit needed.
@@ -202,18 +202,18 @@ def graph_records (records, xy, title_scheme, graph_file, XLabel, YLabel, \
         YName = YLabel["Depth"]
 
         #We call make_text() to get the title for each graph.
-        for index in range( len(records[record])):
-            graph_title = make_text (records[record][index], title_scheme[0],\
-              title_scheme[1])
-            if verbose:
-                print graph_title
+        graph_title = ' '.join(make_text (records[record][0], title_scheme[0],\
+          title_scheme[1], verbose))
+        if verbose:
+            print graph_title
 
         #And finally, we make and save the plot.
         mpl.pyplot.close()
         mpl.pyplot.xlabel(XName)
         mpl.pyplot.ylabel(YName)
         mpl.pyplot.title( graph_title )
-        mpl.pyplot.plot(new_xy[0], new_xy[1])
+        mpl.pyplot.plot(new_xy[0], \
+          new_xy[1])
         mpl.pyplot.savefig(graph_filename, dpi=200)
         #mpl.pyplot.show()
 
@@ -225,33 +225,40 @@ def plot_markers (records, marker_text, popup_text, verbose=False):
     There is a known bug in that it will add multiple markers if there are
     multiple tests.
     '''
+    with open("locations.js", "wt") as out_file: #Clear the existing file.
+        out_file.write( '' )
     for record in range( len(records)):
         text = ' '.join(make_text (records[record][0], marker_text[0],\
-          marker_text[1]))
+          marker_text[1], verbose))
         if verbose:
             print text
-        location = str(round(float(records[record][0]["Latitude"]),5)),\
-          ",", str(round(float(records[record][0]["Longitude"]),5))
-        location = ''.join(location)
+        location = str ( round(float(records[record][0]["Latitude"]),5) * -1),\
+          str ( round(float(records[record][0]["Longitude"]),5) )
         print location
-        popup_template = make_text (records[record][0], popup_text[0], popup_text[2] )
+        if verbose:
+            print records[record][0]["BoreholeID"], "location:", location
+        popup_template = make_text (records[record][0], popup_text[0],\
+          popup_text[2], verbose )
         for index in range ( len( popup_template)):
             if popup_template[index] == 'user_text':
                 popup_template[index] = text
         popup_template = ''.join(popup_template)
 
-        marker_template = make_text (records[record][0], popup_text[1], popup_text[2])
+        marker_template = make_text (records[record][0], popup_text[1],\
+          popup_text[2], verbose)
+        loc_col = 0
         for index in range ( len( marker_template)):
             if marker_template[index] == 'user_text':
-                marker_template[index] = location
+                marker_template[index] = location[loc_col]
+                loc_col += 1
         marker_template = ''.join(marker_template)
 
         with open("locations.js", "at") as out_file:
             out_file.write( popup_template )
             out_file.write( marker_template )
-        '''PopupTemplate = "var " + BHList[i] + " = L.popup({maxWidth:600, maxHeight:600}).setContent('" + text + "')\n\n"
-		MarkerTemplate = "L.marker([" + location + "],{riseOnHover: true,title:'" + BHList[i] + \
-		"', opacity:0.5})\n\t.addTo(map)\n\t.bindPopup(" + BHList[i] + ")\n\n"'''
+
+        if verbose:
+            print "Marker for", records[record][0]["BoreholeID"], "generated."
 
 if __name__ == "__main__":
     records = import_csv( sys.argv[1] )
@@ -260,6 +267,7 @@ if __name__ == "__main__":
     record_list = split_records (records, header)
     important_cols = ['BoreholeID', 'Date', 'Type']
     new_lists = split_sublists (records, important_cols, header)
+    print_record_summary(new_lists, "BoreholeID")
 
     #print_record_summary(new_lists)
     xy = ("Reading", 'Depth') #Choose the columns to use as X and Y.
@@ -275,7 +283,7 @@ if __name__ == "__main__":
     #Pattern for filename for each graph.
     graph_file = ( ['../graphs/', 1 , "_", 3, "_", 5, ".png"],
     ["BoreholeID", "Type", "Date"] )
-    graph_records (new_lists, xy, title_pattern, graph_file, XLabel, YLabel)
+    #graph_records (new_lists, xy, title_pattern, graph_file, XLabel, YLabel)
 
     #Pattern which will be used for creating popup markers.
     popup_pattern = (
@@ -284,8 +292,8 @@ if __name__ == "__main__":
     "user_text",
     "')\n\n"
     ],
-    ["MarkerTemplate = L.marker(['",
-    "user_text", "'],{riseOnHover: true,title:'", 0,
+    ["L.marker([",
+    "user_text", ',', "user_text", "],{riseOnHover: true,title:'", 0,
     "', opacity:0.5})\n\t.addTo(map)\n\t.bindPopup(", 1, ")\n\n"
     ],
     ["BoreholeID",
