@@ -228,10 +228,25 @@ def plot_markers (records, marker_text, popup_text, verbose=False):
     with open("locations.js", "wt") as out_file: #Clear the existing file.
         out_file.write( '' )
     for record in range( len(records)):
-        text = ' '.join(make_text (records[record][0], marker_text[0],\
-          marker_text[1], verbose))
+
+
+        text = make_text (records[record][0], marker_text[0],\
+          marker_text[1], verbose)
         if verbose:
             print text
+
+        for index in range ( len( text)):
+            if text[index] == 'report_field':
+                report_loc = ''.join(['<a href="../text/',
+                  records[record][0]["BoreholeID"],
+                '" target="_blank">Click for further information, </br>',
+                  "such as graphs, previous visits, photos &c.</a>"])
+                text[index] = report_loc
+                if verbose:
+                    print "Adding report link:", report_loc
+
+        text = ' '.join(text)
+
         location = str ( round(float(records[record][0]["Latitude"]),5) * -1),\
           str ( round(float(records[record][0]["Longitude"]),5) )
         print location
@@ -240,17 +255,24 @@ def plot_markers (records, marker_text, popup_text, verbose=False):
         popup_template = make_text (records[record][0], popup_text[0],\
           popup_text[2], verbose )
         for index in range ( len( popup_template)):
+            if verbose:
+                print "Adding additional fields: text and report link.", popup_template[index]
             if popup_template[index] == 'user_text':
                 popup_template[index] = text
-        popup_template = ''.join(popup_template)
 
         marker_template = make_text (records[record][0], popup_text[1],\
           popup_text[2], verbose)
         loc_col = 0
         for index in range ( len( marker_template)):
+            if verbose:
+                print "Adding additional fields: text and report link.", marker_template[index]
             if marker_template[index] == 'user_text':
                 marker_template[index] = location[loc_col]
                 loc_col += 1
+                if verbose:
+                    print "Adding location data."
+
+        popup_template = ''.join(popup_template)
         marker_template = ''.join(marker_template)
 
         with open("locations.js", "at") as out_file:
@@ -259,6 +281,83 @@ def plot_markers (records, marker_text, popup_text, verbose=False):
 
         if verbose:
             print "Marker for", records[record][0]["BoreholeID"], "generated."
+
+def get_surface_reading(record, xy, make_Y_negative=True, verbose=False):
+    X, Y = '',''
+    if verbose:
+        print type (record[xy[0]]), record[xy[0]]
+        print type (float (record[xy[0]]) ), float(record[xy[0]])
+    X = float(record[xy[0]])
+    if make_Y_negative:
+        Y = float(record[xy[1]]) * -1
+    else:
+        Y = float(record[xy[1]])
+    if verbose:
+        print "X:", X
+        print "Y:", Y
+    return (X, Y)
+
+def generate_report(records, file_ID, report_template, graph_file, XLabel,
+  verbose=False):
+    '''Will create a html file for each borehole.'''
+    for record in range( len ( records )):
+        html_path = ''.join(["../text/", records[record][0][file_ID], ".html"])
+        if verbose:
+            print html_path
+
+        report_text = make_text (records[record][0], report_template[0],\
+          report_template[1])
+
+        photo_loc = ''.join(['../photos/', records[record][0][file_ID]])
+        full_photo_loc = ''.join(['<a href="../photos/',
+          records[record][0][file_ID],'>Photos available</a>'])
+        if verbose:
+            print photo_loc, full_photo_loc
+        graph_loc = ''.join(make_text (records[record][0], graph_file[0],\
+          graph_file[1], verbose))
+        full_graph_loc = ''.join(['<img src="', graph_loc, '" width=50%></img>'])
+        if verbose:
+            print graph_loc, full_graph_loc
+        for index in range ( len( report_text)):
+            if verbose:
+                print "Replacing missing fields: photos and graphs",\
+                  report_text[index]
+            if report_text[index] == 'photographs':
+                if verbose:
+                    print "Trying to add photos:"
+                if os.path.exists( photo_loc ):
+                    report_text[index] = full_photo_loc
+                    if verbose:
+                        print "adding photos:", photo_loc
+                else:
+                    report_text[index] = ""
+                    if verbose:
+                        print "No photos, skipping."
+            elif report_text[index] == 'graph':
+                if os.path.exists( graph_loc ):
+                    report_text[index] = full_graph_loc
+                    if verbose:
+                        print "adding graph:", graph_loc
+                else:
+                    if verbose:
+                        print "No graph, adding surface reading."
+                    xy = ("Reading", "Depth")
+                    surface_reading = get_surface_reading(records[record][0],
+                    xy, True, verbose )
+                    print surface_reading
+                    surface_reading = ' '.join (["Water level:",
+                      str( surface_reading[1] ), "Surface reading:",
+                      str( surface_reading[0]) ], XLabel)
+                    report_text[index] = surface_reading
+        report_text = ''.join(report_text)
+        if verbose:
+            print report_text
+        if os.path.exists( html_path ): #This will append, since the file exists.
+            with open(html_path, "at") as out_file:
+                out_file.write( report_text )
+        else:
+            with open(html_path, "wt") as out_file:
+                out_file.write( report_text )
 
 if __name__ == "__main__":
     records = import_csv( sys.argv[1] )
@@ -283,7 +382,7 @@ if __name__ == "__main__":
     #Pattern for filename for each graph.
     graph_file = ( ['../graphs/', 1 , "_", 3, "_", 5, ".png"],
     ["BoreholeID", "Type", "Date"] )
-    #graph_records (new_lists, xy, title_pattern, graph_file, XLabel, YLabel)
+    graph_records (new_lists, xy, title_pattern, graph_file, XLabel, YLabel)
 
     #Pattern which will be used for creating popup markers.
     popup_pattern = (
@@ -308,7 +407,7 @@ if __name__ == "__main__":
     "</br>Owner:", 2,
     "</br>Elevation:", 3,
     "</br>Date visited:", 4,
-    ""],
+    "report_field", "<br/>"],
     [
     "BoreholeID",
     "Farm",
@@ -318,4 +417,22 @@ if __name__ == "__main__":
     ]
     )
 
-    plot_markers (new_lists, marker_text_pattern, popup_pattern)
+    plot_markers (new_lists, marker_text_pattern, popup_pattern, True)
+
+    report_text_pattern = (
+    ["</br></br>Borehole:", 0,
+    "</br>Farm:", 1,
+    "</br>Owner:", 2,
+    "</br>Elevation:", 3,
+    "</br>Date visited:", 4,"<br/>",
+    "photographs", "<br/>",
+    "graph",''],
+    [
+    "BoreholeID",
+    "Farm",
+    "Owner",
+    "Elevation",
+    "Date"
+    ]
+    )
+    generate_report (new_lists, "BoreholeID", report_text_pattern, graph_file, XLabel, True)
