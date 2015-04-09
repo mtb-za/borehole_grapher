@@ -1,0 +1,660 @@
+BH003 1
+BH018 90
+BH018 90
+BH020 1
+BH033 1
+BH085 1
+BH085 1
+BH087 87
+BH090 25
+BH085 1
+BH041 93
+0 1
+Total tests: 12
+['Borehole: ', 'BH003', '</br>Farm: ', 'Vlakte', '</br>Owner: ', 'Jim', '</br>Elevation: ', '452', '</br>Date visited: ', '2015-03-12', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH003.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-33.10909', '24.38097')
+BH003 location: ('-33.10909', '24.38097')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH003
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH003
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH003
+Adding additional fields: text and report link. )
+
+
+Marker for BH003 generated.
+['Borehole: ', 'BH018', '</br>Farm: ', 'Wittewater', '</br>Owner: ', 'John', '</br>Elevation: ', '452', '</br>Date visited: ', '2014-11-16', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH018.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-33.00909', '24.68097')
+BH018 location: ('-33.00909', '24.68097')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH018
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH018
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH018
+Adding additional fields: text and report link. )
+
+
+Marker for BH018 generated.
+['Borehole: ', 'BH018', '</br>Farm: ', 'Wittewater', '</br>Owner: ', 'John', '</br>Elevation: ', '452', '</br>Date visited: ', '2014-11-17', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH018.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-33.00909', '24.68097')
+BH018 location: ('-33.00909', '24.68097')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH018
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH018
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH018
+Adding additional fields: text and report link. )
+
+
+Marker for BH018 generated.
+['Borehole: ', 'BH020', '</br>Farm: ', 'Gryswater', '</br>Owner: ', 'Tom', '</br>Elevation: ', '466.4198167', '</br>Date visited: ', '2014-11-17', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH020.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-33.37043', '24.67567')
+BH020 location: ('-33.37043', '24.67567')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH020
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH020
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH020
+Adding additional fields: text and report link. )
+
+
+Marker for BH020 generated.
+['Borehole: ', 'BH033', '</br>Farm: ', 'Tevreede', '</br>Owner: ', 'Dick', '</br>Elevation: ', '476.1418734', '</br>Date visited: ', '2014-11-18', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH033.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-32.98707', '24.38017')
+BH033 location: ('-32.98707', '24.38017')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH033
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH033
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH033
+Adding additional fields: text and report link. )
+
+
+Marker for BH033 generated.
+['Borehole: ', 'BH085', '</br>Farm: ', 'De Hoop', '</br>Owner: ', 'Harry', '</br>Elevation: ', '498.91475', '</br>Date visited: ', '2014-11-19', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH085.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-33.16384', '24.14192')
+BH085 location: ('-33.16384', '24.14192')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link. )
+
+
+Marker for BH085 generated.
+['Borehole: ', 'BH085', '</br>Farm: ', 'De Hoop', '</br>Owner: ', 'Harry', '</br>Elevation: ', '498.91475', '</br>Date visited: ', '2014-11-30', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH085.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-33.16384', '24.14192')
+BH085 location: ('-33.16384', '24.14192')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link. )
+
+
+Marker for BH085 generated.
+['Borehole: ', 'BH087', '</br>Farm: ', 'Die Kranse', '</br>Owner: ', 'Fred', '</br>Elevation: ', '791', '</br>Date visited: ', '2014-11-15', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH087.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-32.80788', '24.50438')
+BH087 location: ('-32.80788', '24.50438')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH087
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH087
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH087
+Adding additional fields: text and report link. )
+
+
+Marker for BH087 generated.
+['Borehole: ', 'BH090', '</br>Farm: ', 'Rooikrans', '</br>Owner: ', 'Nicky', '</br>Elevation: ', '261', '</br>Date visited: ', '2014-11-17', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH090.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-33.07933', '25.06039')
+BH090 location: ('-33.07933', '25.06039')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH090
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH090
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH090
+Adding additional fields: text and report link. )
+
+
+Marker for BH090 generated.
+['Borehole: ', 'BH085', '</br>Farm: ', 'De Hoop', '</br>Owner: ', 'Harry', '</br>Elevation: ', '498.91475', '</br>Date visited: ', '2015-02-16', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH085.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-33.16384', '24.14192')
+BH085 location: ('-33.16384', '24.14192')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH085
+Adding additional fields: text and report link. )
+
+
+Marker for BH085 generated.
+['Borehole: ', 'BH041', '</br>Farm: ', 'Kudufontein', '</br>Owner: ', 'Abraham', '</br>Elevation: ', '589', '</br>Date visited: ', '2014-11-10', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/BH041.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-32.99457', '24.41175')
+BH041 location: ('-32.99457', '24.41175')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. BH041
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. BH041
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. BH041
+Adding additional fields: text and report link. )
+
+
+Marker for BH041 generated.
+['Borehole: ', '0', '</br>Farm: ', '0', '</br>Owner: ', '0', '</br>Elevation: ', '0', '</br>Date visited: ', '1900-01-00', 'report_field', '<br/>']
+Adding report link: <br/><a href="../text/0.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a>
+('-0.0', '0.0')
+0 location: ('-0.0', '0.0')
+Adding additional fields: text and report link. var 
+Adding additional fields: text and report link. 0
+Adding additional fields: text and report link.  = L.popup({maxWidth:600, maxHeight:600}).setContent('
+Adding additional fields: text and report link. user_text
+Adding additional fields: text and report link. ')
+
+
+Adding additional fields: text and report link. L.marker([
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ,
+Adding additional fields: text and report link. user_text
+Adding location data.
+Adding additional fields: text and report link. ],{riseOnHover: true,title:'
+Adding additional fields: text and report link. 0
+Adding additional fields: text and report link. ', opacity:0.5})
+	.addTo(map)
+	.bindPopup(
+Adding additional fields: text and report link. 0
+Adding additional fields: text and report link. )
+
+
+Marker for 0 generated.
+../text/BH003.html
+XName: Siemens per Second
+../photos/BH003 <a href="../photos/BH003>Photos available</a>
+../graphs/BH003_EC_2015-03-12.png <img src="../graphs/BH003_EC_2015-03-12.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH003
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs Vlakte
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Jim
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 452
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2015-03-12
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+No graph, adding surface reading.
+<type 'str'> 4206
+<type 'float'> 4206.0
+X: 4206.0
+Y: -32.0
+(4206.0, -32.0)
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH003</br>Farm: Vlakte</br>Owner: Jim</br>Elevation: 452m</br>Date visited: 2015-03-12<br/><br/>Water level: -32.0 Surface reading: 4206.0 Siemens per Second
+../text/BH018.html
+XName: Siemens per Second
+../photos/BH018 <a href="../photos/BH018>Photos available</a>
+../graphs/BH018_EC_2014-11-16.png <img src="../graphs/BH018_EC_2014-11-16.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH018
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs Wittewater
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs John
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 452
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-16
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+adding graph: ../graphs/BH018_EC_2014-11-16.png
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH018</br>Farm: Wittewater</br>Owner: John</br>Elevation: 452m</br>Date visited: 2014-11-16<br/><br/><img src="../graphs/BH018_EC_2014-11-16.png" width=50%></img>
+../text/BH018.html
+XName: N
+../photos/BH018 <a href="../photos/BH018>Photos available</a>
+../graphs/BH018_G-G_2014-11-17.png <img src="../graphs/BH018_G-G_2014-11-17.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH018
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs Wittewater
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs John
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 452
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-17
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+adding graph: ../graphs/BH018_G-G_2014-11-17.png
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH018</br>Farm: Wittewater</br>Owner: John</br>Elevation: 452m</br>Date visited: 2014-11-17<br/><br/><img src="../graphs/BH018_G-G_2014-11-17.png" width=50%></img>
+../text/BH020.html
+XName: Siemens per Second
+../photos/BH020 <a href="../photos/BH020>Photos available</a>
+../graphs/BH020_EC_2014-11-17.png <img src="../graphs/BH020_EC_2014-11-17.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH020
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs Gryswater
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Tom
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 466.4198167
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-17
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+No graph, adding surface reading.
+<type 'str'> 453
+<type 'float'> 453.0
+X: 453.0
+Y: -29.32908382
+(453.0, -29.32908382)
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH020</br>Farm: Gryswater</br>Owner: Tom</br>Elevation: 466.4198167m</br>Date visited: 2014-11-17<br/><br/>Water level: -29.32908382 Surface reading: 453.0 Siemens per Second
+../text/BH033.html
+XName: Siemens per Second
+../photos/BH033 <a href="../photos/BH033>Photos available</a>
+../graphs/BH033_EC_2014-11-18.png <img src="../graphs/BH033_EC_2014-11-18.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH033
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs Tevreede
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Dick
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 476.1418734
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-18
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+No graph, adding surface reading.
+<type 'str'> 784
+<type 'float'> 784.0
+X: 784.0
+Y: -3.4
+(784.0, -3.4)
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH033</br>Farm: Tevreede</br>Owner: Dick</br>Elevation: 476.1418734m</br>Date visited: 2014-11-18<br/><br/>Water level: -3.4 Surface reading: 784.0 Siemens per Second
+../text/BH085.html
+XName: Siemens per Second
+../photos/BH085 <a href="../photos/BH085>Photos available</a>
+../graphs/BH085_EC_2014-11-19.png <img src="../graphs/BH085_EC_2014-11-19.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH085
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs De Hoop
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Harry
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 498.91475
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-19
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+No graph, adding surface reading.
+<type 'str'> 8954
+<type 'float'> 8954.0
+X: 8954.0
+Y: -28.36519486
+(8954.0, -28.36519486)
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH085</br>Farm: De Hoop</br>Owner: Harry</br>Elevation: 498.91475m</br>Date visited: 2014-11-19<br/><br/>Water level: -28.36519486 Surface reading: 8954.0 Siemens per Second
+../text/BH085.html
+XName: Siemens per Second
+../photos/BH085 <a href="../photos/BH085>Photos available</a>
+../graphs/BH085_EC_2014-11-30.png <img src="../graphs/BH085_EC_2014-11-30.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH085
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs De Hoop
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Harry
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 498.91475
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-30
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+No graph, adding surface reading.
+<type 'str'> 8954
+<type 'float'> 8954.0
+X: 8954.0
+Y: -28.36519486
+(8954.0, -28.36519486)
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH085</br>Farm: De Hoop</br>Owner: Harry</br>Elevation: 498.91475m</br>Date visited: 2014-11-30<br/><br/>Water level: -28.36519486 Surface reading: 8954.0 Siemens per Second
+../text/BH087.html
+XName: Siemens per Second
+../photos/BH087 <a href="../photos/BH087>Photos available</a>
+../graphs/BH087_EC_2014-11-15.png <img src="../graphs/BH087_EC_2014-11-15.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH087
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs Die Kranse
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Fred
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 791
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-15
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+adding graph: ../graphs/BH087_EC_2014-11-15.png
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH087</br>Farm: Die Kranse</br>Owner: Fred</br>Elevation: 791m</br>Date visited: 2014-11-15<br/><br/><img src="../graphs/BH087_EC_2014-11-15.png" width=50%></img>
+../text/BH090.html
+XName: N
+../photos/BH090 <a href="../photos/BH090>Photos available</a>
+../graphs/BH090_G-G_2014-11-17.png <img src="../graphs/BH090_G-G_2014-11-17.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH090
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs Rooikrans
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Nicky
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 261
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-17
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+adding graph: ../graphs/BH090_G-G_2014-11-17.png
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH090</br>Farm: Rooikrans</br>Owner: Nicky</br>Elevation: 261m</br>Date visited: 2014-11-17<br/><br/><img src="../graphs/BH090_G-G_2014-11-17.png" width=50%></img>
+../text/BH085.html
+XName: Siemens per Second
+../photos/BH085 <a href="../photos/BH085>Photos available</a>
+../graphs/BH085_EC_2015-02-16.png <img src="../graphs/BH085_EC_2015-02-16.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH085
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs De Hoop
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Harry
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 498.91475
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2015-02-16
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+No graph, adding surface reading.
+<type 'str'> 8954
+<type 'float'> 8954.0
+X: 8954.0
+Y: -28.36519486
+(8954.0, -28.36519486)
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH085</br>Farm: De Hoop</br>Owner: Harry</br>Elevation: 498.91475m</br>Date visited: 2015-02-16<br/><br/>Water level: -28.36519486 Surface reading: 8954.0 Siemens per Second
+../text/BH041.html
+XName: Siemens per Second
+../photos/BH041 <a href="../photos/BH041>Photos available</a>
+../graphs/BH041_EC_2014-11-10.png <img src="../graphs/BH041_EC_2014-11-10.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs BH041
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs Kudufontein
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs Abraham
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 589
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 2014-11-10
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+adding graph: ../graphs/BH041_EC_2014-11-10.png
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:BH041</br>Farm: Kudufontein</br>Owner: Abraham</br>Elevation: 589m</br>Date visited: 2014-11-10<br/><br/><img src="../graphs/BH041_EC_2014-11-10.png" width=50%></img>
+../text/0.html
+XName: 
+../photos/0 <a href="../photos/0>Photos available</a>
+../graphs/0_0_1900-01-00.png <img src="../graphs/0_0_1900-01-00.png" width=50%></img>
+Replacing missing fields: photos and graphs </br></br>Borehole:
+Replacing missing fields: photos and graphs 0
+Replacing missing fields: photos and graphs </br>Farm: 
+Replacing missing fields: photos and graphs 0
+Replacing missing fields: photos and graphs </br>Owner: 
+Replacing missing fields: photos and graphs 0
+Replacing missing fields: photos and graphs </br>Elevation: 
+Replacing missing fields: photos and graphs 0
+Replacing missing fields: photos and graphs m
+Replacing missing fields: photos and graphs </br>Date visited: 
+Replacing missing fields: photos and graphs 1900-01-00
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs photographs
+Trying to add photos:
+No photos, skipping.
+Replacing missing fields: photos and graphs <br/>
+Replacing missing fields: photos and graphs graph
+No graph, adding surface reading.
+<type 'str'> 0
+<type 'float'> 0.0
+X: 0.0
+Y: -0.0
+(0.0, -0.0)
+Replacing missing fields: photos and graphs 
+report_text: </br></br>Borehole:0</br>Farm: 0</br>Owner: 0</br>Elevation: 0m</br>Date visited: 1900-01-00<br/><br/>Water level: -0.0 Surface reading: 0.0 

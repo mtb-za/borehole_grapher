@@ -237,9 +237,9 @@ def plot_markers (records, marker_text, popup_text, verbose=False):
 
         for index in range ( len( text)):
             if text[index] == 'report_field':
-                report_loc = ''.join(['<a href="../text/',
-                  records[record][0]["BoreholeID"],
-                '" target="_blank">Click for further information, </br>',
+                report_loc = ''.join(['<br/><a href="../text/',
+                  records[record][0]["BoreholeID"] +
+                '.html" target="_blank">Click for further information, </br>',
                   "such as graphs, previous visits, photos &c.</a>"])
                 text[index] = report_loc
                 if verbose:
@@ -308,6 +308,13 @@ def generate_report(records, file_ID, report_template, graph_file, XLabel,
         report_text = make_text (records[record][0], report_template[0],\
           report_template[1])
 
+        XName = ''
+        for outer in range (len ( records[record])):
+            for index in XLabel:
+                if index == records[record][outer]["Type"]:
+                    XName = XLabel[index]
+        if verbose: print "XName:", XName
+
         photo_loc = ''.join(['../photos/', records[record][0][file_ID]])
         full_photo_loc = ''.join(['<a href="../photos/',
           records[record][0][file_ID],'>Photos available</a>'])
@@ -347,11 +354,11 @@ def generate_report(records, file_ID, report_template, graph_file, XLabel,
                     print surface_reading
                     surface_reading = ' '.join (["Water level:",
                       str( surface_reading[1] ), "Surface reading:",
-                      str( surface_reading[0]) ], XLabel)
+                      str( surface_reading[0]), XName ])
                     report_text[index] = surface_reading
         report_text = ''.join(report_text)
         if verbose:
-            print report_text
+            print "report_text:", report_text
         if os.path.exists( html_path ): #This will append, since the file exists.
             with open(html_path, "at") as out_file:
                 out_file.write( report_text )
@@ -402,11 +409,11 @@ if __name__ == "__main__":
 
     #Pattern to be used for the text on a popup marker.
     marker_text_pattern = (
-    ["Borehole:", 0,
-    "</br>Farm:", 1,
-    "</br>Owner:", 2,
-    "</br>Elevation:", 3,
-    "</br>Date visited:", 4,
+    ["Borehole: ", 0,
+    "</br>Farm: ", 1,
+    "</br>Owner: ", 2,
+    "</br>Elevation: ", 3,
+    "</br>Date visited: ", 4,
     "report_field", "<br/>"],
     [
     "BoreholeID",
@@ -421,10 +428,10 @@ if __name__ == "__main__":
 
     report_text_pattern = (
     ["</br></br>Borehole:", 0,
-    "</br>Farm:", 1,
-    "</br>Owner:", 2,
-    "</br>Elevation:", 3,
-    "</br>Date visited:", 4,"<br/>",
+    "</br>Farm: ", 1,
+    "</br>Owner: ", 2,
+    "</br>Elevation: ", 3, "m",
+    "</br>Date visited: ", 4,"<br/>",
     "photographs", "<br/>",
     "graph",''],
     [
