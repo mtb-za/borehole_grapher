@@ -2,7 +2,7 @@
 
 This script takes a CSV file as input.
 
-The CSV file is structured as such:
+The CSV file is structured as such, although it is not hard-coded to be (any more).
 
 Borehole Number,	Farm,	Owner,	Longitude,	Latitude,	Elevation,	Water Level,	Date,	Depth,	Reading,	Type
 
@@ -71,6 +71,30 @@ These are the main files to make things work. Includes the script, a `index.html
 An .html file is created for each borehole, as detailed above. Each borehole will have one of these files which will open in a new tab when selected.
 * `graphs`
 A .png file is created for each test detected.
+
+##  Generating text
+In order to generate text, such as in the report or the marker, two lists are used.
+
+The first list contains numbers or specific text to be replaced.
+The second list contains the keys for which the value is placed into the text.
+
+    ["Borehole: ", 0,
+    "</br>Farm: ", 1,
+    "</br>Owner: ", 2,
+    "</br>Elevation: ", 3,
+    "</br>Date visited: ", 4,
+    "report_field", "<br/>"],
+    [
+    "BoreholeID",
+    "Farm",
+    "Owner",
+    "Elevation",
+    "Date"
+    ]
+
+Some methods use an additional key (such as the above `report_field`) in order to fill in a value that is not one in a column. The above generates a string similar to the following:
+
+Borehole:  BH003 </br>Farm:  Vlakte </br>Owner:  Jim </br>Elevation:  452 </br>Date visited:  2015-03-12 <br/><a href="../text/BH003.html" target="_blank">Click for further information, </br>such as graphs, previous visits, photos &c.</a> <br/>
 
 ##  License
 

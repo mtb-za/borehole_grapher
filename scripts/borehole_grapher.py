@@ -385,7 +385,7 @@ if __name__ == "__main__":
     #X-axis will be different. The Y-axis is anticipated to be depth,
     #regardless of what is tested.
     YLabel = {"Depth": "Depth below surface (m)"}
-    XLabel = {"G-G": "N", "EC": "Siemens per Second"}
+    XLabel = {"G-G": "N", "EC": "Siemens per Second", "pH": "pH"}
     #Pattern for filename for each graph.
     graph_file = ( ['../graphs/', 1 , "_", 3, "_", 5, ".png"],
     ["BoreholeID", "Type", "Date"] )
@@ -427,19 +427,21 @@ if __name__ == "__main__":
     plot_markers (new_lists, marker_text_pattern, popup_pattern, True)
 
     report_text_pattern = (
-    ["</br></br>Borehole:", 0,
-    "</br>Farm: ", 1,
-    "</br>Owner: ", 2,
-    "</br>Elevation: ", 3, "m",
-    "</br>Date visited: ", 4,"<br/>",
+    ["<em>Borehole:</em> ", 0,
+    "</br><em>Farm:</em> ", 1,
+    "</br><em>Owner:</em> ", 2,
+    "</br><em>Elevation:</em> ", 3, "m",
+    "</br><em>Date visited:</em> ", 4,
+    "</br><em>Test Type:</em> ", 5, " Test</br>",
     "photographs", "<br/>",
-    "graph",''],
+    "graph",'',"</br></br>"],
     [
     "BoreholeID",
     "Farm",
     "Owner",
     "Elevation",
-    "Date"
+    "Date",
+    "Type"
     ]
     )
     generate_report (new_lists, "BoreholeID", report_text_pattern, graph_file, XLabel, True)
